@@ -1,0 +1,64 @@
+.func fib 1
+    .cpool
+        0: 0
+        1: 1
+        2: 2
+    .names
+        0: n
+        1: first
+        2: second
+        3: i
+        4: tmp
+    .code
+            LOAD_CONST               1
+            STORE_FAST               1
+
+            LOAD_CONST               1
+            STORE_FAST               2
+
+            LOAD_CONST               2
+            STORE_FAST               3
+
+            LOAD_FAST                3
+            LOAD_FAST                0
+            COMPARE_OP               0
+            POP_JUMP_IF_FALSE        : scd
+
+        .label fst
+            LOAD_FAST                2
+            STORE_FAST               4
+
+            LOAD_FAST                1
+            LOAD_FAST                2
+            BINARY_ADD
+            STORE_FAST               2
+
+            LOAD_FAST                4
+            STORE_FAST               1
+
+            LOAD_FAST                3
+            LOAD_CONST               1
+            BINARY_ADD
+            STORE_FAST               3
+
+            LOAD_FAST                3
+            LOAD_FAST                0
+            COMPARE_OP               0
+            POP_JUMP_IF_TRUE         : fst
+        .label scd
+            LOAD_FAST                2
+            PRINT
+            LOAD_CONST               0
+            RETURN_VALUE
+
+
+.func main 0
+    .cpool
+        0: 0
+        1: 1000
+    .names
+        0: fib
+    .code
+        LOAD_CONST 1
+        CALL_FUNCTION 0
+        RETURN_VALUE

@@ -1,0 +1,47 @@
+.func fib 1
+    .cpool
+        0: 0
+        1: 1
+        2: 2
+    .names
+        0: n
+        1: fib
+        2: tmp
+    .code
+        LOAD_FAST 0
+        LOAD_CONST 1
+        COMPARE_OP 1
+        POP_JUMP_IF_FALSE : rec
+        LOAD_CONST 1
+        RETURN_VALUE 
+    .label rec
+        LOAD_FAST 0
+        LOAD_CONST 1
+        BINARY_SUBTRACT 
+        CALL_FUNCTION 1
+        STORE_FAST 2
+
+        LOAD_FAST 0
+        LOAD_CONST 2
+        BINARY_SUBTRACT 
+        CALL_FUNCTION 1
+        LOAD_FAST 2
+
+        BINARY_ADD 
+        RETURN_VALUE 
+
+
+
+
+.func main 0
+    .cpool
+        0: 0
+        1: 29
+    .names
+        0: fib
+    .code
+        LOAD_CONST 1
+        CALL_FUNCTION 0
+        PRINT
+        LOAD_CONST 0
+        RETURN_VALUE

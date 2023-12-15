@@ -1,0 +1,1 @@
+#cmakedefine TESTS_DIR "@TESTS_DIR@"

@@ -1,0 +1,45 @@
+.func main 0
+    .cpool
+        0: 0
+        1: 1
+        2: (5, 4, 3, 2, 1)
+        3: x
+        4: y
+    .names
+        0: foo
+        1: a
+        2: b
+        3: bar
+        4: x
+        5: y
+    .code
+        LOAD_BUILD_CLASS
+        LOAD_CONST 0
+        STORE_ATTR 1
+        LOAD_CONST 2
+        STORE_ATTR 2
+        LOAD_ATTR 1
+        POP_TOP
+        LOAD_ATTR 2
+        POP_TOP
+        STORE_BUILD_CLASS 0
+
+        INSTANCE_CLASS 0
+        STORE_FAST 4
+        LOAD_CONST 3
+        STORE_ATTR 1
+        LOAD_CONST 3
+        STORE_ATTR 2
+
+        INSTANCE_CLASS 0
+        STORE_FAST 5
+        LOAD_CONST 4
+        STORE_ATTR 1
+        LOAD_CONST 4
+        STORE_ATTR 2
+
+        PRINT
+        PRINT
+
+        LOAD_CONST 0
+        RETURN_VALUE
